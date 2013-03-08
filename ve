@@ -1,0 +1,39 @@
+#!/bin/bash
+
+if [[ $# -le 0 ]]; then
+    echo "Usage: `basename $0` <command> [agrument]..."
+fi
+
+if [ -r "$HOME/.verc" ]; then
+    source "$HOME/.verc"
+fi
+
+if [ -z "$DOT_VIRTUAL_ENV" ]; then
+    DOT_VIRTUAL_ENV=".virtualenv"
+fi
+
+DIR=`pwd`
+for (( ;; ))
+do
+    if [ -r "$DIR/$DOT_VIRTUAL_ENV/bin/activate" ]; then
+        source "$DIR/$DOT_VIRTUAL_ENV/bin/activate"
+        if [ -n "$VIRTUAL_ENV" ]; then
+            break
+        fi
+    fi
+    if [ "$DIR" == "/" ]; then
+        break
+    fi
+    DIR=`dirname $DIR`
+done
+unset DOT_VIRTUAL_ENV
+
+if [ -z "$VIRTUAL_ENV" ]; then
+    echo "virtualenv: not found"
+    echo
+else
+    echo "virtualenv: $VIRTUAL_ENV"
+    echo
+    exec $@
+fi
+
