@@ -29,7 +29,7 @@ directory. If it's not void virtualenv, it will search in the parent directory
 recursively.
 
 It's possible to use another name for virtualenv directory instead of the
-default one.  Set the environment variable `DOT_VIRTUAL_ENV` to the name you
+default one.  Set the environment variable `VIRTUALENV_DIR` to the name you
 prefer.
 
  [1]: http://www.virtualenv.org/

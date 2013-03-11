@@ -8,15 +8,15 @@ if [ -r "$HOME/.verc" ]; then
     source "$HOME/.verc"
 fi
 
-if [ -z "$DOT_VIRTUAL_ENV" ]; then
-    DOT_VIRTUAL_ENV=".virtualenv"
+if [ -z "$VIRTUALENV_DIR" ]; then
+    VIRTUALENV_DIR=".virtualenv"
 fi
 
 DIR=`pwd`
 for (( ;; ))
 do
-    if [ -r "$DIR/$DOT_VIRTUAL_ENV/bin/activate" ]; then
-        source "$DIR/$DOT_VIRTUAL_ENV/bin/activate"
+    if [ -r "$DIR/$VIRTUALENV_DIR/bin/activate" ]; then
+        source "$DIR/$VIRTUALENV_DIR/bin/activate"
         if [ -n "$VIRTUAL_ENV" ]; then
             break
         fi
@@ -26,7 +26,6 @@ do
     fi
     DIR=`dirname $DIR`
 done
-unset DOT_VIRTUAL_ENV
 
 if [ -z "$VIRTUAL_ENV" ]; then
     echo "virtualenv: not found"
