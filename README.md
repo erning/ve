@@ -15,7 +15,9 @@ if they were installed into the systemwide site-packages.
 ## Install
 
 Download the **ve** script and save to the executable search path, for
-instance `$HOME/bin/ve`. 
+instance,
+
+    curl "https://raw.github.com/erning/ve/master/ve" -o "$HOME/bin/ve"
 
 ## Usage
 
