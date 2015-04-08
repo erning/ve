@@ -37,6 +37,6 @@ else
         echo
         shift
     fi
-    exec $@
+    exec "$@"
 fi
 
