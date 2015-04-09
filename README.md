@@ -17,7 +17,7 @@ if they were installed into the systemwide site-packages.
 Download the **ve** script and save to the executable search path, for
 instance,
 
-    curl -kL "http://git.io/ve" -o "$HOME/bin/ve"
+    curl -kL "http://git.io/ve" -o "$HOME/bin/ve" && chmod +x "$HOME/bin/ve"
 
 ## Usage
 
